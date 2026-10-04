@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>247 Media & Marketing</title>
+
+  <meta
+    name="description"
+    content="247 Media & Marketing helps businesses get seen through social media content, promotional videos, digital marketing and creative services."
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050505;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(5, 5, 5, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1c1c1c;
+    }
+
+    .nav-inner {
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #8b3dff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #9c52ff;
+    }
+
+    .nav-button {
+      background: #8b3dff;
+      padding: 11px 18px;
+      border-radius: 8px;
+      font-weight: 800;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 75px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: #731cff;
+      filter: blur(180px);
+      opacity: 0.18;
+      right: -150px;
+      top: 100px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      color: #a45cff;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(52px, 9vw, 100px);
+      line-height: 0.95;
+      letter-spacing: -5px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 span {
+      color: #9145ff;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: #b8b8b8;
+      font-size: 19px;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 23px;
+      border-radius: 9px;
+      font-weight: 900;
+      transition: 0.25s;
+    }
+
+    .button-primary {
+      background: #8b3dff;
+    }
+
+    .button-primary:hover {
+      background: #a45cff;
+      transform: translateY(-2px);
+    }
+
+    .button-secondary {
+      border: 1px solid #333;
+      background: #101010;
+    }
+
+    .button-secondary:hover {
+      border-color: #8b3dff;
+    }
+
+    /* GENERAL */
+
+    section {
+      padding: 110px 0;
+    }
+
+    .section-label {
+      color: #9145ff;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(35px, 5vw, 58px);
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+
+    .section-description {
+      color: #999;
+      max-width: 650px;
+      margin-bottom: 45px;
+    }
+
+    /* SERVICES */
+
+    .services {
+      background: #090909;
+      border-top: 1px solid #151515;
+      border-bottom: 1px solid #151515;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .service-card {
+      background: #0e0e0e;
+      border: 1px solid #202020;
+      border-radius: 14px;
+      padding: 30px;
+      min-height: 250px;
+      transition: 0.25s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: #8b3dff;
+    }
+
+    .service-number {
+      color: #8b3dff;
+      font-weight: 900;
+      font-size: 13px;
+      margin-bottom: 50px;
+    }
+
+    .service-card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: #8e8e8e;
+      font-size: 14px;
+    }
+
+    /* WHY US */
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .why-text p {
+      color: #aaa;
+      margin-bottom: 25px;
+      max-width: 550px;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .feature {
+      padding: 18px;
+      background: #0c0c0c;
+      border: 1px solid #1d1d1d;
+      border-radius: 10px;
+      font-weight: 800;
+    }
+
+    .feature span {
+      color: #9145ff;
+      margin-right: 10px;
+    }
+
+    /* PRICING */
+
+    .pricing {
+      background: #090909;
+      border-top: 1px solid #151515;
+      border-bottom: 1px solid #151515;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .price-card {
+      background: #0d0d0d;
+      border: 1px solid #242424;
+      border-radius: 16px;
+      padding: 35px;
+      position: relative;
+    }
+
+    .price-card.featured {
+      border: 2px solid #8b3dff;
+      transform: translateY(-8px);
+    }
+
+    .popular {
+      position: absolute;
+      top: -13px;
+      right: 20px;
+      background: #8b3dff;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .price-card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 42px;
+      font-weight: 900;
+      margin: 15px 0;
+    }
+
+    .price span {
+      color: #777;
+      font-size: 14px;
+      font-weight: normal;
+    }
+
+    .price-card p {
+      color: #8d8d8d;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .price-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      color: #bbb;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .price-list li::before {
+      content: "✓";
+      color: #9145ff;
+      font-weight: 900;
+      margin-right: 9px;
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      background: linear-gradient(135deg, #111 0%, #080808 100%);
+      border: 1px solid #252525;
+      border-radius: 20px;
+      padding: 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .contact-box p {
+      color: #999;
+      margin-bottom: 25px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      background: #050505;
+      border: 1px solid #292929;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      outline: none;
+      font-family: inherit;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #8b3dff;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid #1a1a1a;
+      padding: 35px 0;
+      color: #777;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+      .nav-links {
+        display: none;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .price-card.featured {
+        transform: none;
+      }
+
+      .why-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        padding: 35px 25px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .hero h1 {
+        font-size: 56px;
+        letter-spacing: -3px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .nav-button {
+        display: none;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <div class="container nav-inner">
+      <a href="#home" class="logo">
+        <span>247</span> MEDIA
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why">Why 247</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a href="#contact" class="nav-button">Get Started</a>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <main id="home">
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            247 Media & Marketing
+          </div>
+
+          <h1>
+            We Help<br />
+            Businesses<br />
+            <span>Get Seen.</span>
+          </h1>
+
+          <p>
+            Social media content, promotional videos, digital marketing
+            and creative services built to help businesses attract attention
+            and reach more customers.
+          </p>
+
+          <div class="buttons">
+            <a href="#contact" class="button button-primary">
+              Get Started
+            </a>
+
+            <a href="#services" class="button button-secondary">
+              Our Services
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section class="services" id="services">
+      <div class="container">
+
+        <div class="section-label">
+          What We Do
+        </div>
+
+        <h2 class="section-title">
+          Content that gets<br />attention.
+        </h2>
+
+        <p class="section-description">
+          We turn your business into content people actually want to see,
+          share and remember.
+        </p>
+
+        <div class="service-grid">
+
+          <div class="service-card">
+            <div class="service-number">01</div>
+            <h3>Social Media</h3>
+            <p>
+              TikTok and Instagram content designed to keep your business
+              active and visible online.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-number">02</div>
+            <h3>Promo Videos</h3>
+            <p>
+              Short promotional videos that show customers exactly what
+              your business has to offer.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-number">03</div>
+            <h3>Marketing</h3>
+            <p>
+              Creative marketing strategies designed to help you reach
+              more potential customers.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-number">04</div>
+            <h3>Graphics</h3>
+            <p>
+              Digital flyers, advertisements and promotional graphics
+              built for your brand.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- WHY 247 -->
+
+    <section id="why">
+      <div class="container">
+
+        <div class="why-grid">
+
+          <div class="why-text">
+
+            <div class="section-label">
+              Why 247
+            </div>
+
+            <h2 class="section-title">
+              Your business deserves more attention.
+            </h2>
+
+            <p>
+              You already have something worth showing.
+              We help turn what you do into content that catches people's
+              attention and gives them a reason to check you out.
+            </p>
+
+            <a href="#contact" class="button button-primary">
+              Work With Us
+            </a>
+
+          </div>
+
+          <div class="feature-list">
+
+            <div class="feature">
+              <span>01</span>
+              Built for social media
+            </div>
+
+            <div class="feature">
+              <span>02</span>
+              Simple creative solutions
+            </div>
+
+            <div class="feature">
+              <span>03</span>
+              Content focused on your business
+            </div>
+
+            <div class="feature">
+              <span>04</span>
+              Flexible packages
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PRICING -->
+
+    <section class="pricing" id="pricing">
+      <div class="container">
+
+        <div class="section-label">
+          Packages
+        </div>
+
+        <h2 class="section-title">
+          Pick your level.
+        </h2>
+
+        <p class="section-description">
+          Simple packages for businesses that want to start getting
+          more attention online.
+        </p>
+
+        <div class="pricing-grid">
+
+          <div class="price-card">
+
+            <h3>Starter</h3>
+
+            <div class="price">
+              $99<span>/project</span>
+            </div>
+
+            <p>
+              Perfect for businesses that want to test the waters.
+            </p>
+
+            <ul class="price-list">
+              <li>1 promotional video</li>
+              <li>1 social media graphic</li>
+              <li>Caption & post idea</li>
+              <li>Basic content strategy</li>
+            </ul>
+
+            <a href="#contact" class="button button-secondary">
+              Get Started
+            </a>
+
+          </div>
+
+
+          <div class="price-card featured">
+
+            <div class="popular">
+              MOST POPULAR
+            </div>
+
+            <h3>Growth</h3>
+
+            <div class="price">
+              $249<span>/month</span>
+            </div>
+
+            <p>
+              For businesses ready to stay consistent online.
+            </p>
+
+            <ul class="price-list">
+              <li>4 promotional videos</li>
+              <li>4 social media graphics</li>
+              <li>Content ideas</li>
+              <li>Social media strategy</li>
+              <li>Monthly content planning</li>
+            </ul>
+
+            <a href="#contact" class="button button-primary">
+              Get Started
+            </a>
+
+          </div>
+
+
+          <div class="price-card">
+
+            <h3>Custom</h3>
+
+            <div class="price">
+              Let's Talk
+            </div>
+
+            <p>
+              Need something bigger? We'll build a package around your goals.
+            </p>
+
+            <ul class="price-list">
+              <li>Custom content package</li>
+              <li>Marketing strategy</li>
+              <li>Social media management</li>
+              <li>Custom graphics</li>
+              <li>Promotional campaigns</li>
+            </ul>
+
+            <a href="#contact" class="button button-secondary">
+              Contact Us
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+      <div class="container">
+
+        <div class="contact-box">
+
+          <div>
+
+            <div class="section-label">
+              Let's Work
+            </div>
+
+            <h2 class="section-title">
+              Ready to get your business seen?
+            </h2>
+
+            <p>
+              Tell us a little about your business and what you need.
+              We'll get back to you with the next steps.
+            </p>
+
+          </div>
+
+          <form id="contactForm">
+
+            <input
+              type="text"
+              id="name"
+              placeholder="Your name"
+              required
+            />
+
+            <input
+              type="text"
+              id="business"
+              placeholder="Business name"
+              required
+            />
+
+            <input
+              type="email"
+              id="email"
+              placeholder="Email address"
+              required
+            />
+
+            <select id="service" required>
+              <option value="">What do you need?</option>
+              <option>Social Media Content</option>
+              <option>Promotional Video</option>
+              <option>Digital Marketing</option>
+              <option>Graphics / Flyers</option>
+              <option>Custom Package</option>
+            </select>
+
+            <textarea
+              id="message"
+              placeholder="Tell us about your business..."
+              required
+            ></textarea>
+
+            <button
+              type="submit"
+              class="button button-primary"
+              style="border:0; cursor:pointer;"
+            >
+              Send Request
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="container footer-inner">
+
+      <div>
+        © 2026 247 Media & Marketing
+      </div>
+
+      <div>
+        Content • Promotion • Marketing
+      </div>
+
+    </div>
+  </footer>
+
+
+  <script>
+    document
+      .getElementById("contactForm")
+      .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const business = document.getElementById("business").value;
+        const email = document.getElementById("email").value;
+        const service = document.getElementById("service").value;
+        const message = document.getElementById("message").value;
+
+        const subject = encodeURIComponent(
+          "New 247 Media & Marketing Inquiry"
+        );
+
+        const body = encodeURIComponent(
+          `Name: ${name}\n` +
+          `Business: ${business}\n` +
+          `Email: ${email}\n` +
+          `Service: ${service}\n\n` +
+          `Message:\n${message}`
+        );
+
+        /*
+          CHANGE THIS EMAIL TO YOUR REAL BUSINESS EMAIL
+        */
+
+        window.location.href =
+          `mailto:YOUR_EMAIL@example.com?subject=${subject}&body=${body}`;
+      });
+  </script>
+
+</body>
+</html> 
